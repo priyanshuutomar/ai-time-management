@@ -34,9 +34,10 @@ Formatting rules:
 Keep your response concise, practical, and immediately actionable.`
 
 export async function POST(req: NextRequest) {
+  let tasks: Task[] = []
   try {
     const body = await req.json()
-    const { tasks } = body as { tasks: Task[] }
+    tasks = body.tasks || []
 
     if (!tasks || !Array.isArray(tasks) || tasks.length === 0) {
       return NextResponse.json(

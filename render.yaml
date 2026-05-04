@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-time-management-fullstack
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: XAI_API_KEY
+        sync: false
